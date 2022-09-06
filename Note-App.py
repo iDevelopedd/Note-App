@@ -80,21 +80,21 @@ title_bar.bind("<Map>", reminimize_app)
 
 # Custom title bar
 title_label = Label(title_bar, text="Note-App", background=figma_white, font=(inter_bold, 16), fg="black")
-title_label.grid(row=0, column=1, sticky=SW)
+title_label.grid(row=0, column=1, columnspan=3, sticky=SW)
 
 ############################################# Feature Buttons ###########################################################
 
 # Settings Button
 title_setting = Button(title_bar, image = settings_button_image, background=figma_white, relief="flat")
-title_setting.grid(row=0, column=0, rowspan=3, padx=20, pady=0)
+title_setting.grid(row=0, column=0, rowspan=3, padx=20)
 
 # Text Button
 title_text = Button(title_bar, text="Text", background=figma_white, font=(inter_regular, 10), fg="black", relief="flat")
-title_text.grid(row=1, column=1, padx=2, sticky=NW)
+title_text.grid(row=1, column=1, sticky=NW)
 
 # Audio Button
 title_audio = Button(title_bar, text="Audio", background=figma_white, font=(inter_regular, 10), fg="black", relief="flat")
-title_audio.grid(row=1, column=2, padx=1)
+title_audio.grid(row=1, column=2)
 
 # Image Button
 title_image = Button(title_bar, text="Image", background=figma_white, font=(inter_regular, 10), fg="black", relief="flat")

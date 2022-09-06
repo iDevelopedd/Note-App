@@ -6,7 +6,7 @@ from tkinter import *
 root = Tk()
 
 root.title('Note-App')
-root.geometry("500x500")
+root.geometry("500x70")
 root.config(background="#D9D9D9")
 
 ############################################# Setting up the variables and files we need #####################
@@ -19,13 +19,13 @@ figma_white = '#D9D9D9'
 settings_button = PhotoImage(file = r"Images\Settings.png")
 exit_button = PhotoImage(file = r"Images\ExitButton.png")
 minimize_button = PhotoImage(file = r"Images\Minimize.png")
-maximize_button = PhotoImage(file= r"Images\Maximize.png")
+# maximize_button = PhotoImage(file= r"Images\Maximize.png") !!NOT SURE IF WE WANT TO ADD YET
 
 # Resizes the images
 settings_button_image = settings_button.subsample(2, 2)
 exit_button_image = exit_button.subsample(2, 2)
 minimize_button_image = minimize_button.subsample(2, 2)
-maximize_button_image = maximize_button.subsample(2, 2)
+# maximize_button_image = maximize_button.subsample(2, 2) !!NOT SURE IF WE WANT TO ADD YET
 
 ###################################### Removing and creating a custom app ################################################
 
@@ -112,9 +112,9 @@ close_label.grid(row=0, column=7, padx=5, sticky=SE)
 close_label.bind("<Button-1>", quit_app)
 
 # Maximize Button
-max_label = Label(title_bar, image = maximize_button_image, bg=figma_white, fg="black", font=(inter_bold, 20))
-max_label.grid(row=0, column=6, padx=5, sticky=S)
-# max_label.bind("<Button-1>", maximize_app)
+# max_label = Label(title_bar, image = maximize_button_image, bg=figma_white, fg="black", font=(inter_bold, 20))
+# max_label.grid(row=0, column=6, padx=5, sticky=S)
+# # max_label.bind("<Button-1>", maximize_app)
 
 # Minimize Button
 min_label = Label(title_bar, image = minimize_button_image, bg=figma_white, fg="black", font=(inter_bold, 20))

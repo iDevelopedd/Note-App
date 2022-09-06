@@ -16,9 +16,9 @@ inter_regular = 'Inter-Regular'
 figma_white = '#D9D9D9'
 
 # Image importer for the minimize, maximize and exit buttons
-exit_button = PhotoImage(file = r"C:\Users\Prise\Downloads\ExitButton.png")
-minimize_button = PhotoImage(file = r"C:\Users\Prise\Downloads\Minimize.png")
-maximize_button = PhotoImage(file= r"C:\Users\Prise\Downloads\Maximize.png")
+exit_button = PhotoImage(file = r"Images\ExitButton.png")
+minimize_button = PhotoImage(file = r"Images\Minimize.png")
+maximize_button = PhotoImage(file= r"Images\Maximize.png")
 
 # Resizes the images
 exit_button_image = exit_button.subsample(2, 2)

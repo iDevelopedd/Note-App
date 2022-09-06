@@ -1,3 +1,3 @@
 # Note-App
 
-print("Hello World");
+A simple python note-app made with python and tkinter

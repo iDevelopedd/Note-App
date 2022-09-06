@@ -16,11 +16,13 @@ inter_regular = 'Inter-Regular'
 figma_white = '#D9D9D9'
 
 # Image importer for the minimize, maximize and exit buttons
+settings_button = PhotoImage(file = r"Images\Settings.png")
 exit_button = PhotoImage(file = r"Images\ExitButton.png")
 minimize_button = PhotoImage(file = r"Images\Minimize.png")
 maximize_button = PhotoImage(file= r"Images\Maximize.png")
 
 # Resizes the images
+settings_button_image = settings_button.subsample(2, 2)
 exit_button_image = exit_button.subsample(2, 2)
 minimize_button_image = minimize_button.subsample(2, 2)
 maximize_button_image = maximize_button.subsample(2, 2)
@@ -36,7 +38,7 @@ def quit_app(e):
 
 # Title bar
 title_bar = Frame(root, bg=figma_white, relief="flat")
-title_bar.pack(fill=X)
+title_bar.pack(fill=X, pady=5)
 
 # Title bar line
 title_line = Frame(root, bg="black", relief="flat")
@@ -52,7 +54,7 @@ def get_pos(e):
     ywin -= starty
     xwin -= startx
 
-    # Function to move the app window to the mouse pointer
+    # Function for the app window to the mouse pointer
     def move_app(e):
         root.geometry('+{0}+{1}'.format(e.x_root + xwin, e.y_root + ywin))
 
@@ -77,43 +79,48 @@ def reminimize_app(e):
 title_bar.bind("<Map>", reminimize_app)
 
 # Custom title bar
-title_label = Label(title_bar, text="Note-App", background="black", font=(inter_bold, 14), fg=figma_white)
-title_label.pack(side=LEFT, padx=50)
+title_label = Label(title_bar, text="Note-App", background=figma_white, font=(inter_bold, 16), fg="black")
+title_label.grid(row=0, column=1, sticky=SW)
 
 ############################################# Feature Buttons ###########################################################
 
+# Settings Button
+title_setting = Button(title_bar, image = settings_button_image, background=figma_white, relief="flat")
+title_setting.grid(row=0, column=0, rowspan=3, padx=20, pady=0)
+
 # Text Button
-title_text = Button(title_bar, text="Text", background="black", font=(inter_regular, 10), fg=figma_white, relief="flat")
-title_text.pack(side=LEFT)
+title_text = Button(title_bar, text="Text", background=figma_white, font=(inter_regular, 10), fg="black", relief="flat")
+title_text.grid(row=1, column=1, padx=2, sticky=NW)
 
 # Audio Button
-title_audio = Button(title_bar, text="Audio", background="black", font=(inter_regular, 10), fg=figma_white, relief="flat")
-title_audio.pack(side=LEFT)
+title_audio = Button(title_bar, text="Audio", background=figma_white, font=(inter_regular, 10), fg="black", relief="flat")
+title_audio.grid(row=1, column=2, padx=1)
 
 # Image Button
-title_image = Button(title_bar, text="Image", background="black", font=(inter_regular, 10), fg=figma_white, relief="flat")
-title_image.pack(side=LEFT)
+title_image = Button(title_bar, text="Image", background=figma_white, font=(inter_regular, 10), fg="black", relief="flat")
+title_image.grid(row=1, column=3)
 
 # Link Button
-title_link = Button(title_bar, text="Link", background="black", font=(inter_regular, 10), fg=figma_white, relief="flat")
-title_link.pack(side=LEFT)
+title_link = Button(title_bar, text="Link", background=figma_white, font=(inter_regular, 10), fg="black", relief="flat")
+title_link.grid(row=1, column=4)
 
 ############################################## Minimize, Maximize, Exit Buttons ########################################
 
 # Exit button
 close_label = Label(title_bar, image = exit_button_image, bg=figma_white, fg="black", font=(inter_bold, 20))
-close_label.pack(side=RIGHT, ipadx=5, ipady=5)
+close_label.grid(row=0, column=7, padx=5, sticky=SE)
 close_label.bind("<Button-1>", quit_app)
 
 # Maximize Button
-close_label = Label(title_bar, image = maximize_button_image, bg=figma_white, fg="black", font=(inter_bold, 20))
-close_label.pack(side=RIGHT, ipadx=5, ipady=5)
-# close_label.bind("<Button-1>", quit_app)
+max_label = Label(title_bar, image = maximize_button_image, bg=figma_white, fg="black", font=(inter_bold, 20))
+max_label.grid(row=0, column=6, padx=5, sticky=S)
+# max_label.bind("<Button-1>", maximize_app)
 
 # Minimize Button
-close_label = Label(title_bar, image = minimize_button_image, bg=figma_white, fg="black", font=(inter_bold, 20))
-close_label.pack(side=RIGHT, ipadx=5, ipady=5)
-close_label.bind("<Button-1>", minimize_app)
+min_label = Label(title_bar, image = minimize_button_image, bg=figma_white, fg="black", font=(inter_bold, 20))
+min_label.grid(row=0, column=5, padx=5, sticky=S)
+min_label.bind("<Button-1>", minimize_app)
+
 ############################################# End of the application #######################################
 # App Loop IMPORTANT!!!
 root.mainloop()

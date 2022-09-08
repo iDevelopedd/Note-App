@@ -1,3 +1,3 @@
 # Note-App
 
-A simple python note-app made with python and tkinter
+A simple note taking app made with python and tkinter

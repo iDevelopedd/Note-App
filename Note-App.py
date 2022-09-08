@@ -6,7 +6,11 @@ from tkinter import *
 root = Tk()
 
 root.title('Note-App')
+<<<<<<< HEAD
 root.geometry("500x70")
+=======
+root.geometry("500x69")
+>>>>>>> 2d85d9ad6ea5e0d7cf3f6050192d03df8ec36aec
 root.config(background="#D9D9D9")
 
 ############################################# Setting up the variables and files we need #####################
@@ -25,7 +29,11 @@ minimize_button = PhotoImage(file = r"Images\Minimize.png")
 settings_button_image = settings_button.subsample(2, 2)
 exit_button_image = exit_button.subsample(2, 2)
 minimize_button_image = minimize_button.subsample(2, 2)
+<<<<<<< HEAD
 # maximize_button_image = maximize_button.subsample(2, 2) !!NOT SURE IF WE WANT TO ADD YET
+=======
+maximize_button_image = maximize_button.subsample(2, 2) 
+>>>>>>> 2d85d9ad6ea5e0d7cf3f6050192d03df8ec36aec
 
 ###################################### Removing and creating a custom app ################################################
 
@@ -78,6 +86,19 @@ def reminimize_app(e):
 # Binds the titlebar so it reminimize the app
 title_bar.bind("<Map>", reminimize_app)
 
+def audio_window():
+    # Create a small window for the audio button window
+    audio_root = Tk()
+
+    audio_root.geometry("300x70")
+    audio_root.mainloop()
+
+def image_window():
+    image_root = Tk()
+
+    image_root.geometry("300x70")
+    image_root.mainloop()
+
 # Custom title bar
 title_label = Label(title_bar, text="Note-App", background=figma_white, font=(inter_bold, 16), fg="black")
 title_label.grid(row=0, column=1, columnspan=3, sticky=SW)
@@ -93,11 +114,19 @@ title_text = Button(title_bar, text="Text", background=figma_white, font=(inter_
 title_text.grid(row=1, column=1, sticky=NW)
 
 # Audio Button
+<<<<<<< HEAD
 title_audio = Button(title_bar, text="Audio", background=figma_white, font=(inter_regular, 10), fg="black", relief="flat")
 title_audio.grid(row=1, column=2)
 
 # Image Button
 title_image = Button(title_bar, text="Image", background=figma_white, font=(inter_regular, 10), fg="black", relief="flat")
+=======
+title_audio = Button(title_bar, text="Audio", background=figma_white, font=(inter_regular, 10), fg="black", relief="flat", command=audio_window)
+title_audio.grid(row=1, column=2)
+
+# Image Button
+title_image = Button(title_bar, text="Image", background=figma_white, font=(inter_regular, 10), fg="black", relief="flat", command=image_window)
+>>>>>>> 2d85d9ad6ea5e0d7cf3f6050192d03df8ec36aec
 title_image.grid(row=1, column=3)
 
 # Link Button
@@ -112,9 +141,15 @@ close_label.grid(row=0, column=7, padx=5, sticky=SE)
 close_label.bind("<Button-1>", quit_app)
 
 # Maximize Button
+<<<<<<< HEAD
 # max_label = Label(title_bar, image = maximize_button_image, bg=figma_white, fg="black", font=(inter_bold, 20))
 # max_label.grid(row=0, column=6, padx=5, sticky=S)
 # # max_label.bind("<Button-1>", maximize_app)
+=======
+max_label = Label(title_bar, image = maximize_button_image, bg=figma_white, fg="black", font=(inter_bold, 20))
+max_label.grid(row=0, column=6, padx=5, sticky=S)
+# max_label.bind("<Button-1>", maximize_app)
+>>>>>>> 2d85d9ad6ea5e0d7cf3f6050192d03df8ec36aec
 
 # Minimize Button
 min_label = Label(title_bar, image = minimize_button_image, bg=figma_white, fg="black", font=(inter_bold, 20))

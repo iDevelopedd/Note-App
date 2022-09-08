@@ -8,7 +8,11 @@ import webbrowser
 root = Tk()
 
 root.title('Note-App')
+<<<<<<< HEAD
+root.geometry("500x70")
+=======
 root.geometry("500x69")
+>>>>>>> 2d85d9ad6ea5e0d7cf3f6050192d03df8ec36aec
 root.config(background="#D9D9D9")
 
 ############################################# Setting up the variables and files we need #####################
@@ -21,13 +25,17 @@ figma_white = '#D9D9D9'
 settings_button = PhotoImage(file = r"Images\Settings.png")
 exit_button = PhotoImage(file = r"Images\ExitButton.png")
 minimize_button = PhotoImage(file = r"Images\Minimize.png")
-maximize_button = PhotoImage(file= r"Images\Maximize.png")
+# maximize_button = PhotoImage(file= r"Images\Maximize.png") !!NOT SURE IF WE WANT TO ADD YET
 
 # Resizes the images
 settings_button_image = settings_button.subsample(2, 2)
 exit_button_image = exit_button.subsample(2, 2)
 minimize_button_image = minimize_button.subsample(2, 2)
+<<<<<<< HEAD
+# maximize_button_image = maximize_button.subsample(2, 2) !!NOT SURE IF WE WANT TO ADD YET
+=======
 maximize_button_image = maximize_button.subsample(2, 2) 
+>>>>>>> 2d85d9ad6ea5e0d7cf3f6050192d03df8ec36aec
 
 ###################################### Removing and creating a custom app ################################################
 
@@ -111,11 +119,24 @@ title_text = Button(title_bar, text="Text", background=figma_white, font=(inter_
 title_text.grid(row=1, column=1, sticky=NW)
 
 # Audio Button
+<<<<<<< HEAD
 # title_audio = Button(title_bar, text="Audio", background=figma_white, font=(inter_regular, 10), fg="black", relief="flat", command=audio_window)
 # title_audio.grid(row=1, column=2)
+=======
+<<<<<<< HEAD
+title_audio = Button(title_bar, text="Audio", background=figma_white, font=(inter_regular, 10), fg="black", relief="flat")
+title_audio.grid(row=1, column=2)
+
+# Image Button
+title_image = Button(title_bar, text="Image", background=figma_white, font=(inter_regular, 10), fg="black", relief="flat")
+=======
+title_audio = Button(title_bar, text="Audio", background=figma_white, font=(inter_regular, 10), fg="black", relief="flat", command=audio_window)
+title_audio.grid(row=1, column=2)
+>>>>>>> d62a979d4f77aacb56a5708007a6bf7ce6f55cbe
 
 # Image Button
 title_image = Button(title_bar, text="Image", background=figma_white, font=(inter_regular, 10), fg="black", relief="flat", command=image_window)
+>>>>>>> 2d85d9ad6ea5e0d7cf3f6050192d03df8ec36aec
 title_image.grid(row=1, column=3)
 
 # Link Button
@@ -130,9 +151,15 @@ close_label.grid(row=0, column=7, padx=5, sticky=SE)
 close_label.bind("<Button-1>", quit_app)
 
 # Maximize Button
+<<<<<<< HEAD
+# max_label = Label(title_bar, image = maximize_button_image, bg=figma_white, fg="black", font=(inter_bold, 20))
+# max_label.grid(row=0, column=6, padx=5, sticky=S)
+# # max_label.bind("<Button-1>", maximize_app)
+=======
 max_label = Label(title_bar, image = maximize_button_image, bg=figma_white, fg="black", font=(inter_bold, 20))
 max_label.grid(row=0, column=6, padx=5, sticky=S)
 # max_label.bind("<Button-1>", maximize_app)
+>>>>>>> 2d85d9ad6ea5e0d7cf3f6050192d03df8ec36aec
 
 # Minimize Button
 min_label = Label(title_bar, image = minimize_button_image, bg=figma_white, fg="black", font=(inter_bold, 20))

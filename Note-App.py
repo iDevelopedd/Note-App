@@ -86,15 +86,9 @@ def image_window():
     image_root = Tk()
 
     image_root.geometry("300x70")
-    image_root.title("Add Audio")
+    image_root.title("Add Image")
     image_root.resizable(0,0)
     image_root.config(background=figma_white)
-
-    title_bar = Frame(image_root, bg=figma_white, relief="flat")
-    title_bar.pack(expand=1, fill=X)
-
-    text_area = Text(title_bar, height=1, width=50, bg="black", fg="white", relief="flat")
-    text_area.pack()
 
     image_root.mainloop()
 

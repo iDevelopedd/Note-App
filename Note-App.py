@@ -8,7 +8,6 @@ import webbrowser
 root = Tk()
 
 root.title('Note-App')
-root.geometry("500x70")
 root.geometry("500x69")
 root.config(background="#D9D9D9")
 
@@ -28,7 +27,6 @@ maximize_button = PhotoImage(file= r"Images\Maximize.png")
 settings_button_image = settings_button.subsample(2, 2)
 exit_button_image = exit_button.subsample(2, 2)
 minimize_button_image = minimize_button.subsample(2, 2)
-maximize_button_image = maximize_button.subsample(2, 2)
 maximize_button_image = maximize_button.subsample(2, 2)
 
 ###################################### Removing and creating a custom app ################################################

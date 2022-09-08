@@ -1,5 +1,7 @@
-# Import the Tkinter library
+# Import the Tkinter Module
+from cgitb import text
 from tkinter import *
+import webbrowser
 
 ############################################# Start of the application #####################
 # Set the root of the application
@@ -35,12 +37,12 @@ root.overrideredirect(True)
 # Function for quitting the app
 def quit_app(e):
     root.quit()
-
-# Title bar
+    
+# Creates the title bar
 title_bar = Frame(root, bg=figma_white, relief="flat")
 title_bar.pack(fill=X, pady=5)
 
-# Title bar line
+# Creates a frame for the title bar line
 title_line = Frame(root, bg="black", relief="flat")
 title_line.pack(expand=0, fill=X)
 
@@ -58,7 +60,7 @@ def get_pos(e):
     def move_app(e):
         root.geometry('+{0}+{1}'.format(e.x_root + xwin, e.y_root + ywin))
 
-    # Bind the title bar (B1 is the left mouse button <B1-Motion> and motion means that it will print the position of the moving mouse pointer)
+    # Binds the title bar (B1 is the left mouse button <B1-Motion> and motion means that it will print the position of the moving mouse pointer)
     title_bar.bind("<B1-Motion>", move_app)
 # Binds the left mouse button to the position of the window
 title_bar.bind("<Button-1>", get_pos)
@@ -78,17 +80,20 @@ def reminimize_app(e):
 # Binds the titlebar so it reminimize the app
 title_bar.bind("<Map>", reminimize_app)
 
-def audio_window():
-    # Create a small window for the audio button window
-    audio_root = Tk()
-
-    audio_root.geometry("300x70")
-    audio_root.mainloop()
-
 def image_window():
     image_root = Tk()
 
     image_root.geometry("300x70")
+    image_root.title("Add Audio")
+    image_root.resizable(0,0)
+    image_root.config(background=figma_white)
+
+    title_bar = Frame(image_root, bg=figma_white, relief="flat")
+    title_bar.pack(expand=1, fill=X)
+
+    text_area = Text(title_bar, height=1, width=50, bg="black", fg="white", relief="flat")
+    text_area.pack()
+
     image_root.mainloop()
 
 # Custom title bar
@@ -106,8 +111,8 @@ title_text = Button(title_bar, text="Text", background=figma_white, font=(inter_
 title_text.grid(row=1, column=1, sticky=NW)
 
 # Audio Button
-title_audio = Button(title_bar, text="Audio", background=figma_white, font=(inter_regular, 10), fg="black", relief="flat", command=audio_window)
-title_audio.grid(row=1, column=2)
+# title_audio = Button(title_bar, text="Audio", background=figma_white, font=(inter_regular, 10), fg="black", relief="flat", command=audio_window)
+# title_audio.grid(row=1, column=2)
 
 # Image Button
 title_image = Button(title_bar, text="Image", background=figma_white, font=(inter_regular, 10), fg="black", relief="flat", command=image_window)

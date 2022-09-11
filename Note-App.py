@@ -1,5 +1,17 @@
 from tkinter import *
 
+<<<<<<< HEAD
+=======
+############################################# Start of the application #####################
+# Set the root of the application
+root = Tk()
+
+root.title('Note-App')
+root.geometry("500x69")
+root.config(background="#D9D9D9")
+
+############################################# Setting up the variables and files we need #####################
+>>>>>>> d66094b9ae4c8ef8197af921d3b3a4a217284c43
 # Fonts and color scheme
 inter_bold = 'Inter-Bold'
 inter_regular = 'Inter-Regular'
@@ -8,11 +20,19 @@ figma_white = '#D9D9D9'
 # Sets the root of the application
 root = Tk()
 
+<<<<<<< HEAD
 # Configures the title, resoultion, icon image and background color
 root.title("Note-App")
 root.geometry("500x500")
 root.iconbitmap("Images\Icon.ico")
 root.config(background="#D9D9D9")
+=======
+# Resizes the images
+settings_button_image = settings_button.subsample(2, 2)
+exit_button_image = exit_button.subsample(2, 2)
+minimize_button_image = minimize_button.subsample(2, 2)
+maximize_button_image = maximize_button.subsample(2, 2)
+>>>>>>> d66094b9ae4c8ef8197af921d3b3a4a217284c43
 
 # Sets the menubar to the root window
 menubar = Menu(root)

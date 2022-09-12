@@ -1,44 +1,56 @@
+# Imports the modules needed
+from fileinput import filename
 from tkinter import *
-import webbrowser
+from tkinter import filedialog
+from PIL import ImageTk,Image
 
-#<<<<<<< HEAD
-#=======
-############################################# Start of the application #####################
-# Set the root of the application
-# root = Tk()
-
-# root.title('Note-App')
-# root.geometry("500x69")
-# root.config(background="#D9D9D9")
-
-############################################# Setting up the variables and files we need #####################
-#>>>>>>> d66094b9ae4c8ef8197af921d3b3a4a217284c43
 # Fonts and color scheme
 inter_bold = 'Inter-Bold'
 inter_regular = 'Inter-Regular'
 figma_white = '#D9D9D9'
 
-# Sets the root of the application
+# Sets the root level of the application
 root = Tk()
 
-#<<<<<<< HEAD
 # Configures the title, resoultion, icon image and background color
 root.title("Note-App")
 root.geometry("500x500")
 root.iconbitmap("Images\Icon.ico")
 root.config(background="#D9D9D9")
-#>>>>>>> d66094b9ae4c8ef8197af921d3b3a4a217284c43
 
 # Sets the menubar to the root window
 menubar = Menu(root)
 root.config(menu=menubar)
 
-# Creates the file menu on the menubar
+# Opens a file
+def openButton():
+
+    filepath = filedialog.askopenfilename()
+    file = open(filepath,'r')
+    textcontent = file.read()
+
+    if filepath == filedialog.askopenfilename(filetype=[("any", "*.txt")]):
+        print("Txt file detected")
+
+    # user_text.insert(END, textfile)
+    file.close()
+
+# Saves the content of the current file
+def saveButton():
+    filepath = filedialog.askopenfilename()
+    textFile = open(filepath, 'w')
+    # textFile.write(user_text.get(1.0, END))
+
+# Opens the setings window
+# def settingsButton():
+#     print("Settings window opened")
+
+# Creates the file menu on the menubar and the items within that menu
 fileMenu = Menu(menubar, tearoff=0)
 menubar.add_cascade(label="File", menu=fileMenu)
-fileMenu.add_command(label="Open")
-fileMenu.add_command(label="Save")
-fileMenu.add_command(label="Settings")
+fileMenu.add_command(label="Open", command=openButton)
+fileMenu.add_command(label="Save", command=saveButton)
+# fileMenu.add_command(label="Settings", command=settingsButton)
 fileMenu.add_command(label="Quit", command=root.quit)
 
 # Creates the add text
@@ -61,10 +73,31 @@ menubar.add_cascade(label="Text", menu=textMenu)
 textMenu.add_command(label="Add Text", command = textButton)
 
 
-# Creates the add image menu
+# Opens a filedialog so that the user can select which one to import
+def imageButton():
+    global image
+    root.filename = filedialog.askopenfilename(title="Select Image", 
+    filetype=[(" ", "*.png"), ("any", "*.*")])
+
+    top = Toplevel()
+    top.title("Image")
+    top.geometry("300x300")
+    top.iconbitmap("Images\Icon.ico")
+
+    canvas=Canvas(top)
+    image = Image.open(root.filename)
+    image = image.resize((900, 700), resample=1)
+    image = ImageTk.PhotoImage(image)
+    canvas.create_image(0,0,image=image)
+    canvas.pack()
+
+    top.mainloop()
+    
+    
+# Creates the imageMenu the add image item
 imageMenu = Menu(menubar, tearoff=0)
 menubar.add_cascade(label="Image", menu=imageMenu)
-imageMenu.add_command(label="Add Image")
+imageMenu.add_command(label="Add Image", command=imageButton)
 
 # Creates the add link 
 def linkButton():
@@ -82,5 +115,4 @@ linkMenu = Menu(menubar, tearoff=0)
 menubar.add_cascade(label="Link", menu=linkMenu)
 linkMenu.add_command(label="Add Link", command = linkButton)
 
-# End of the application
-root.mainloop() # !!IMPORTANT
+root.mainloop()

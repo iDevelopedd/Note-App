@@ -66,11 +66,13 @@ def textButton():
     text.pack()
 
     top.mainloop()
+    
 
 
 textMenu = Menu(menubar, tearoff=0)
 menubar.add_cascade(label="Text", menu=textMenu)
 textMenu.add_command(label="Add Text", command = textButton)
+
 
 
 # Opens a filedialog so that the user can select which one to import
@@ -100,6 +102,7 @@ menubar.add_cascade(label="Image", menu=imageMenu)
 imageMenu.add_command(label="Add Image", command=imageButton)
 
 # Creates the add link 
+
 def linkButton():
     top = Toplevel()
     top.resizable(False, False)
@@ -116,3 +119,5 @@ menubar.add_cascade(label="Link", menu=linkMenu)
 linkMenu.add_command(label="Add Link", command = linkButton)
 
 root.mainloop()
+
+

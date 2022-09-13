@@ -72,14 +72,14 @@ def openButton():
         filename.close()
 
     # Checks if it is a url link
-    if root.filename:
-        # global opened_file
-        opened_url_file = root.filename
-        # user_url.delete("1.0", END)
-        filename = open(opened_url_file, 'r')
-        content = filename.read()
-        user_url.insert(END, content)
-        filename.close()
+    # if root.filename:
+    #     # global opened_file
+    #     opened_url_file = root.filename
+    #     # user_url.delete("1.0", END)
+    #     filename = open(opened_url_file, 'r')
+    #     content = filename.read()
+    #     user_url.insert(END, content)
+    #     filename.close()
         
 # Saves a file as a specific name
 def saveAsButton():

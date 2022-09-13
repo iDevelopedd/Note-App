@@ -106,17 +106,42 @@ fileMenu.add_command(label="Save As", command=saveAsButton)
 fileMenu.add_separator()
 fileMenu.add_command(label="Quit", command=root.quit)
 
+<<<<<<< HEAD
 # Creates the textMenu and adds the text item
 textMenu = Menu(menubar, tearoff=0)
 menubar.add_cascade(label="Text", menu=textMenu)
 textMenu.add_command(label="Save Text", command=saveText)
 textMenu.add_command(label="Clear Text", command=clearText)
+=======
+# Creates the add text
+
+def textButton():
+
+    top = Toplevel()
+    top.resizable(False, False)
+    top.title("Text")
+    top.iconbitmap("Image\Icon.ico")
+
+    text = Text(top, height=15, width=90)
+    text.pack()
+
+    top.mainloop()
+    
+
+
+textMenu = Menu(menubar, tearoff=0)
+menubar.add_cascade(label="Text", menu=textMenu)
+textMenu.add_command(label="Add Text", command = textButton)
+
+
+>>>>>>> c035fd9ac4ccd8b8a77f8cc95a6e45a03e6de554
 
 # Creates the imageMenu then add image items
 imageMenu = Menu(menubar, tearoff=0)
 menubar.add_cascade(label="Image", menu=imageMenu)
 imageMenu.add_command(label="Add Image", command=addImage)
 
+<<<<<<< HEAD
 # Creates the linkMenu then adds link items 
 linkMenu = Menu(menubar, tearoff=0)
 menubar.add_cascade(label="Link", menu=linkMenu)
@@ -128,3 +153,25 @@ root.mainloop() # !!IMPORTANT If its not include the application will not run
 
 
 # Resources we've used: Codemy.com and Bro Code on youtube
+=======
+# Creates the add link 
+
+def linkButton():
+    top = Toplevel()
+    top.resizable(False, False)
+    top.title("Link")
+    top.iconbitmap("Image\Icon.ico")
+
+    text = Text(top, height=15, width=90)
+    text.pack(pady=20)
+
+    top.mainloop()
+
+linkMenu = Menu(menubar, tearoff=0)
+menubar.add_cascade(label="Link", menu=linkMenu)
+linkMenu.add_command(label="Add Link", command = linkButton)
+
+root.mainloop()
+
+
+>>>>>>> c035fd9ac4ccd8b8a77f8cc95a6e45a03e6de554

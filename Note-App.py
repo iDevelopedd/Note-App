@@ -4,7 +4,7 @@ from tkinter import filedialog
 import webbrowser
 from PIL import ImageTk,Image
 
-# Sets the fonts and color scheme we'll need
+# Sets the fonts and color we'll need
 inter_bold = 'Inter-Bold'
 inter_regular = 'Inter-Regular'
 figma_white = '#D9D9D9'
@@ -12,7 +12,7 @@ figma_white = '#D9D9D9'
 # Sets the root level of the application
 root = Tk()
 
-# Configures the title, resoultion, icon image and background color
+# Configurations the title, resoultion, icon image and background color
 root.title("Note-App")
 root.geometry("500x500")
 root.iconbitmap("Images\Icon.ico")
@@ -38,10 +38,13 @@ user_url.insert("1.0", "http://www.")
 # Opens a filedialog so that the user can select 
 # an image then it opens it in another window
 def addImage():
+    # Won't load image if its a local variable
     global image
+    # Opens filedialog here
     root.filename = filedialog.askopenfilename(title="Select Image", 
     filetype=[(" ", "*.png"), ("Any File", "*.*")])
 
+    # Opens the new window here
     if root.filename:
         top = Toplevel()
         top.title("Image")
@@ -62,6 +65,7 @@ def addImage():
 def openButton():
     root.filename = filedialog.askopenfilename(filetype=([("Text", "*.txt"), ("Any File", "*.*")]))
 
+    # This next line will only run if the user selects a file 
     if root.filename:
         global opened_file
         opened_file = root.filename
@@ -70,20 +74,11 @@ def openButton():
         content = filename.read()
         user_text.insert(END, content)
         filename.close()
-
-    # Checks if it is a url link
-    # if root.filename:
-    #     # global opened_file
-    #     opened_url_file = root.filename
-    #     # user_url.delete("1.0", END)
-    #     filename = open(opened_url_file, 'r')
-    #     content = filename.read()
-    #     user_url.insert(END, content)
-    #     filename.close()
         
 # Saves a file as a specific name
 def saveAsButton():
     filename = filedialog.asksaveasfile(defaultextension=".txt", mode="w",filetype=(("Text", "*.txt"), ("Any File", "*.*")))
+
     if filename:
         content = user_text.get("1.0", END)
         filename.write(content)

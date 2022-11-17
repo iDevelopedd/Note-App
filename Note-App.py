@@ -154,5 +154,4 @@ linkMenu.add_command(label="Go to Link", command=gotoLink)
 
 # Ends the application
 root.mainloop() # !!IMPORTANT If its not include the application will not run
-
 # Resources we've used: Codemy.com and Bro Code on youtube
